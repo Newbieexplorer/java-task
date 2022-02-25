@@ -17,6 +17,26 @@ public class Task1 {
      * @return - the length of the last word in the string.
      */
     public int lengthOfLastWord(String str) {
-        return 0;
+        // checking boundary cases
+        int wordLength = 0;
+        if (str == null || str.length() == 0){
+            return wordLength;
+        }
+        char[] chars = str.toCharArray();
+        // also checking boundary cases
+        if (chars.length == 1 && chars[0] != ' ') {
+            return 1;
+        }
+
+        int leng = str.length()-1;
+
+        while(leng != 0 && chars[leng] == ' ') {
+            leng --;
+        }
+        while (leng >= 0 && chars[leng] != ' ') {
+            leng--;
+            wordLength++;
+        }
+        return wordLength;
     }
 }
